@@ -1,3 +1,4 @@
+import Sidebar from "@/components/layout/SideBar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex">
+          {/* Bungkus Sidebar dan konten utama */}
+          <Sidebar /> {/* Render komponen Sidebar */}
+          <main className="flex-1 p-4">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
